@@ -23,12 +23,7 @@ interface Props {
 export const runtime = 'edge';
 export const revalidate = 0; // Cache disabled
 
-// Generate static params for these known categories (SSG)
-export async function generateStaticParams() {
-  return Object.keys(categoryMap).map((cat) => ({
-    category: cat,
-  }));
-}
+
 
 // Generate dynamic SEO metadata
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
