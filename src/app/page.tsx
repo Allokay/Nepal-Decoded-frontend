@@ -10,7 +10,7 @@ import { Footer } from '@/components/Footer';
 
 // Ensure the homepage dynamically fetches articles and updates (SSR/ISR)
 export const runtime = 'edge';
-export const revalidate = 300;
+export const revalidate = 0; // Cache disabled
 
 export default async function HomePage() {
   const articles = await fetchCategoryArticles('home');

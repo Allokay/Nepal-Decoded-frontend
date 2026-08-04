@@ -20,7 +20,8 @@ interface Props {
   params: Promise<{ category: string }>;
 }
 
-export const revalidate = 300;
+export const runtime = 'edge';
+export const revalidate = 0; // Cache disabled
 
 // Generate static params for these known categories (SSG)
 export async function generateStaticParams() {

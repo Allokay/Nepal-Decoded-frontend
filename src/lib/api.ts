@@ -69,7 +69,7 @@ export const fetchCategoryArticles = async (category: string): Promise<NewsData[
     const url = `${API_BASE_URL}${endpoint}`;
     
     const response = await fetch(url, {
-      next: { revalidate: 300 } // Cache for 5 minutes (Next.js ISR)
+      cache: 'no-store' // Cache completely discarded, fetches fresh data on every request
     });
 
     if (!response.ok) {
@@ -167,7 +167,7 @@ export const fetchMetals = async (): Promise<MetalPrices | null> => {
 export const fetchStoryById = async (id: string): Promise<StoryDetail | null> => {
   try {
     const response = await fetch(`${API_BASE_URL}/api/news/story/${id}`, {
-      next: { revalidate: 300 } // Cache for 5 minutes
+      cache: 'no-store' // Cache completely discarded
     });
 
     if (!response.ok) {
