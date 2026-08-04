@@ -1,0 +1,79 @@
+import type { Metadata } from "next";
+import { Inter, Merriweather } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const merriweather = Merriweather({
+  variable: "--font-merriweather",
+  weight: ["300", "400", "700", "900"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Nepal Decoded",
+    default: "Nepal Decoded | Neutral News Aggregator & Headline Indexer",
+  },
+  description: "Nepal Decoded is a neutral news aggregator for Nepal and major international news sources. We group similar headlines to bring you multiple perspectives at a glance.",
+  metadataBase: new URL("https://nepaldecoded.com"), // Fallback domain
+  openGraph: {
+    title: "Nepal Decoded",
+    description: "Neutral news aggregator for Nepal and major international news sources.",
+    url: "https://nepaldecoded.com",
+    siteName: "Nepal Decoded",
+    locale: "ne_NP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nepal Decoded",
+    description: "Neutral news aggregator for Nepal and major international news sources.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  }
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="en"
+      className={`${inter.variable} ${merriweather.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const savedTheme = localStorage.getItem('theme');
+                  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (_) {}
+              })();
+            `
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-[#fafafa] text-[#0f172a] dark:bg-[#090d16] dark:text-[#f8fafc] transition-colors duration-300" suppressHydrationWarning>
+        {children}
+      </body>
+    </html>
+  );
+}
