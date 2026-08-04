@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     default: "Nepal Decoded | Neutral News Aggregator & Headline Indexer",
   },
   description: "Nepal Decoded is your real-time, neutral news aggregator. We index breaking headlines, in-depth analysis, and diverse perspectives from top Nepali and international publishers.",
-  metadataBase: new URL("https://nepaldecoded.com"), // Fallback domain
+  metadataBase: new URL("https://thenepaldecoded.com"), // Fallback domain
   openGraph: {
     title: "Nepal Decoded | Neutral News Aggregator",
     description: "Get verified news and diverse perspectives from top publishers. Nepal Decoded indexes the headlines that matter.",
-    url: "https://nepaldecoded.com",
+    url: "https://thenepaldecoded.com",
     siteName: "Nepal Decoded",
     locale: "ne_NP",
     type: "website",
@@ -35,6 +35,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nepal Decoded",
     description: "Real-time neutral news aggregator for Nepal and the world.",
+  },
+  alternates: {
+    canonical: "https://thenepaldecoded.com",
   },
   robots: {
     index: true,

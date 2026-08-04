@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${story.headline} | Nepal Decoded`,
       description: `Read the headline and view original sources. Aggregated from ${story.sources.length} portals on Nepal Decoded.`,
-      url: `https://nepaldecoded.com/news/${resolvedParams.id}`,
+      url: `https://thenepaldecoded.com/news/${resolvedParams.id}`,
       type: 'article',
       publishedTime: story.publishedTime,
       tags: [story.category, 'Nepal News', 'Aggregator'],
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: `Access original coverage links. Aggregated on Nepal Decoded.`,
     },
     alternates: {
-      canonical: `https://nepaldecoded.com/news/${resolvedParams.id}`,
+      canonical: `https://thenepaldecoded.com/news/${resolvedParams.id}`,
     },
   };
 }
@@ -138,7 +138,7 @@ export default async function NewsDetailPage({ params }: Props) {
           <div className="flex flex-wrap items-center gap-2 text-[10px] font-bold pb-6 border-b border-slate-200/60 dark:border-slate-800/80">
             <span className="text-slate-400 dark:text-slate-500 uppercase tracking-widest mr-1">Share:</span>
             <a
-              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(story.headline)}&url=${encodeURIComponent(`https://nepaldecoded.com/news/${id}`)}`}
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(story.headline)}&url=${encodeURIComponent(`https://thenepaldecoded.com/news/${id}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-2.5 py-1 rounded-md border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/30 text-slate-700 dark:text-slate-300 hover:bg-slate-950 dark:hover:bg-slate-800 hover:text-white dark:hover:text-white transition-all duration-200"
@@ -146,7 +146,7 @@ export default async function NewsDetailPage({ params }: Props) {
               Twitter / X
             </a>
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://nepaldecoded.com/news/${id}`)}`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://thenepaldecoded.com/news/${id}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-2.5 py-1 rounded-md border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/30 text-slate-700 dark:text-slate-300 hover:bg-blue-600 hover:text-white dark:hover:text-white transition-all duration-200"
@@ -154,7 +154,7 @@ export default async function NewsDetailPage({ params }: Props) {
               Facebook
             </a>
             <a
-              href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`${story.headline} - https://nepaldecoded.com/news/${id}`)}`}
+              href={`https://api.whatsapp.com/send?text=${encodeURIComponent(`${story.headline} - https://thenepaldecoded.com/news/${id}`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-2.5 py-1 rounded-md border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/30 text-slate-700 dark:text-slate-300 hover:bg-emerald-500 hover:text-white dark:hover:text-white transition-all duration-200"
