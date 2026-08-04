@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
 import "./globals.css";
+import { AutoRefresh } from "@/components/AutoRefresh";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -72,8 +73,10 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-[#fafafa] text-[#0f172a] dark:bg-[#090d16] dark:text-[#f8fafc] transition-colors duration-300" suppressHydrationWarning>
+        <AutoRefresh intervalMinutes={15} />
         {children}
       </body>
     </html>
   );
 }
+
