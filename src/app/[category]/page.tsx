@@ -21,7 +21,7 @@ interface Props {
 }
 
 export const runtime = 'edge';
-export const revalidate = 0; // Cache disabled
+export const revalidate = 60; // Refresh every 60 seconds
 
 
 

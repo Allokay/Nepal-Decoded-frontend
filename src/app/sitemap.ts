@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { fetchCategoryArticles } from '@/lib/api';
 
-export const revalidate = 0; // Always fresh for Google to index latest news
+export const revalidate = 3600; // Regenerate sitemap every hour - no need to be more frequent
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://thenepaldecoded.com';

@@ -69,7 +69,7 @@ export const fetchCategoryArticles = async (category: string): Promise<NewsData[
     const url = `${API_BASE_URL}${endpoint}`;
     
     const response = await fetch(url, {
-      cache: 'no-store' // Cache completely discarded, fetches fresh data on every request
+      next: { revalidate: 60 } // Refresh every 60 seconds - fresh but CPU-efficient
     });
 
     if (!response.ok) {
@@ -167,7 +167,7 @@ export const fetchMetals = async (): Promise<MetalPrices | null> => {
 export const fetchStoryById = async (id: string): Promise<StoryDetail | null> => {
   try {
     const response = await fetch(`${API_BASE_URL}/api/news/story/${id}`, {
-      cache: 'no-store' // Cache completely discarded
+      next: { revalidate: 300 } // Cache story pages for 5 minutes
     });
 
     if (!response.ok) {
