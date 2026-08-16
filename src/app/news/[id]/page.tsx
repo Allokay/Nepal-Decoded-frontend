@@ -11,8 +11,7 @@ interface Props {
   params: Promise<{ id: string }>;
 }
 
-export const runtime = 'edge';
-export const revalidate = 60;
+export const revalidate = 300; // Cache article pages for 5 minutes
 
 // Generate dynamic metadata for search engines (SEO)
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -8,9 +8,8 @@ import { PictureSection } from '@/components/PictureSection';
 import { YouTubeSection } from '@/components/YouTubeSection';
 import { Footer } from '@/components/Footer';
 
-// Ensure the homepage dynamically fetches articles and updates (SSR/ISR)
-export const runtime = 'edge';
-export const revalidate = 60; // Refresh every 60 seconds
+// ISR: regenerate every 60 seconds (standard Node.js serverless, not Edge)
+export const revalidate = 60;
 
 export default async function HomePage() {
   const articles = await fetchCategoryArticles('home');

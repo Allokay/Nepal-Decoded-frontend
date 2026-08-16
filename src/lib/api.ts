@@ -66,12 +66,10 @@ export const fetchCategoryArticles = async (category: string): Promise<NewsData[
     // Home shows /api/stories
     // Categories show /api/news/:category
     const endpoint = isHome ? '/api/stories' : `/api/news/${backendCategory}`;
-    // Add a per-minute cache buster to prevent stale edge cache (Vercel ISR issue)
-    const cacheBuster = Math.floor(Date.now() / 60000); // Changes every minute
-    const url = `${API_BASE_URL}${endpoint}?_t=${cacheBuster}`;
+    const url = `${API_BASE_URL}${endpoint}`;
     
     const response = await fetch(url, {
-      next: { revalidate: 60 } // Refresh every 60 seconds - fresh but CPU-efficient
+      next: { revalidate: 60 } // ISR: regenerate every 60 seconds
     });
 
     if (!response.ok) {

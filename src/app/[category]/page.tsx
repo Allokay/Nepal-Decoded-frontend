@@ -20,8 +20,8 @@ interface Props {
   params: Promise<{ category: string }>;
 }
 
-export const runtime = 'edge';
-export const revalidate = 60; // Refresh every 60 seconds
+// ISR: regenerate every 60 seconds (standard Node.js serverless, not Edge)
+export const revalidate = 60;
 
 
 
