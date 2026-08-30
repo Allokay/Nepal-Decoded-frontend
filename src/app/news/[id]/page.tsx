@@ -172,18 +172,11 @@ export default async function NewsDetailPage({ params }: Props) {
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      {/* Source favicon */}
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${
-                        index === 0 ? 'bg-white/20' : 'bg-slate-100 dark:bg-slate-800'
+                      {/* Source favicon - safe approach */}
+                      <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-xs font-bold ${
+                        index === 0 ? 'bg-white/20 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
                       }`}>
-                        <img
-                          src={`https://www.google.com/s2/favicons?domain=${new URL(source.url).hostname}&sz=32`}
-                          alt={source.name}
-                          width={16}
-                          height={16}
-                          className="rounded-sm"
-                          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                        />
+                        {source.name?.charAt(0)?.toUpperCase() || 'N'}
                       </div>
                       <div>
                         <p className={`font-bold text-sm ${index === 0 ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
