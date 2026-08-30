@@ -5,7 +5,7 @@ import { Header } from '@/components/Header';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { getTimeSincePublished } from '@/lib/utils';
-import { ExternalLink, Calendar, Tag, Shield, ArrowLeft, Newspaper } from 'lucide-react';
+import { ExternalLink, Calendar, Shield, ArrowLeft, Newspaper } from 'lucide-react';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -96,8 +96,6 @@ export default async function NewsDetailPage({ params }: Props) {
 
   const displayCategory = story.category || 'General';
 
-  // For single-source stories, we auto-redirect feel via prominent CTA
-  const primarySource = story.sources[0];
   const hasMultipleSources = story.sources.length > 1;
 
   return (
